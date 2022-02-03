@@ -9,4 +9,10 @@
   </header>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+header {
+  display: flex;
+  padding: 10px 30px;
+  justify-content: space-between;
+}
+</style>
