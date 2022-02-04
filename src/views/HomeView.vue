@@ -129,6 +129,9 @@ section {
         background: #61cebb;
       }
     }
+    @media (max-width: 991.98px) {
+      margin-bottom: 50px;
+    }
   }
   #rate {
     position: relative;
@@ -138,6 +141,13 @@ section {
       left: 50%;
       z-index: -3;
       max-width: 500px;
+      @media (max-width: 1350px) {
+        max-width: 400px;
+        top: -90%;
+      }
+      @media (max-width: 991.98px) {
+        display: none;
+      }
     }
     ul {
       display: flex;
@@ -158,7 +168,15 @@ section {
           font-weight: bold;
         }
       }
+      @media (max-width: 611.98px) {
+        display: none;
+      }
     }
+  }
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    padding-top: 70px;
+    text-align: center;
   }
 }
 </style>
