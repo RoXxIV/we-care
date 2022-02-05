@@ -4,6 +4,7 @@ import SimulatorView from '../views/SimulatorView.vue'
 import ResultView from '../views/ResultView.vue'
 
 import HabitationType from '../components/Simulator_Questions/HabitationType.vue'
+import PersonalStatus from "../components/Simulator_Questions/PersonalStatus.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,11 +15,12 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/devis-en-ligne',
+      path: '/devis-en-ligne/:id',
       name: 'simulator',
       component: SimulatorView,
       children: [
-        {path: '', component: HabitationType}
+        {path: '', component: HabitationType},
+        {path: 'situation-personnelle', component: PersonalStatus}
       ]
     },
     {

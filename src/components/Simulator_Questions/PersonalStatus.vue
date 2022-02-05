@@ -3,7 +3,7 @@
 <template>
   <section class="w-1/2 mx-auto text-center bg-white px-32 py-24 rounded-lg">
     <h1 class="text-4xl font-bold">
-      Mon type de <span class="text-violet-700">logement</span>
+      Ma situation <span class="text-violet-700">personnelle</span>
     </h1>
     <ul class="flex justify-around py-14">
       <li
@@ -11,7 +11,7 @@
       >
         <font-awesome-icon
           class="block mx-auto text-7xl mb-3"
-          :icon="['fas', 'home']"
+          :icon="['fas', 'key']"
         />
         Maison
       </li>
@@ -20,13 +20,12 @@
       >
         <font-awesome-icon
           class="block mx-auto text-7xl mb-3"
-          :icon="['fas', 'igloo']"
+          :icon="['fas', 'stopwatch']"
         />
         Igloo
       </li>
     </ul>
     <button
-      @click="$router.push('/devis-en-ligne/2/situation-personnelle')"
       class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-full"
     >
       Continuer
