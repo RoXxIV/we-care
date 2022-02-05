@@ -30,7 +30,9 @@
           au juste prix ?
         </li>
       </ul>
-      <button>Obtenir un devis gratuitement</button>
+      <button @click="$router.push('/devis-en-ligne')">
+        Obtenir un devis gratuitement
+      </button>
     </div>
     <div id="rate">
       <img

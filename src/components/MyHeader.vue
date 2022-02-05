@@ -6,7 +6,7 @@
       <router-link to="/"><span>We</span>Care</router-link>
     </div>
     <nav>
-      <button>Obtenir un devis</button>
+      <button @click="$router.push('/devis-en-ligne')">Obtenir un devis</button>
     </nav>
   </header>
 </template>

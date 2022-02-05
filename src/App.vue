@@ -7,22 +7,14 @@ import MyFooter from "./components/MyFooter.vue";
 <template>
   <MyHeader></MyHeader>
   <main>
-    <RouterView />
+    <router-view></router-view>
   </main>
-  <MyFooter></MyFooter>
+  <!--<MyFooter></MyFooter>-->
 </template>
 
 <style lang="scss" scoped>
-#app {
-  display: flex;
-  flex-direction: column;
-  max-width: 100vw;
-  main {
-    height: calc(100vh - 208px);
-    section {
-      width: 75%;
-      margin: auto;
-    }
-  }
+section {
+  width: 75%;
+  margin: auto;
 }
 </style>
