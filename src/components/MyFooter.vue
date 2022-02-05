@@ -1,10 +1,8 @@
-<script setup lang="ts"></script>
-
 <template>
-  <footer>
+  <footer class="bg-white py-4">
     <!--Reseau-->
-    <ul id="social">
-      <li>
+    <ul class="flex justify-center">
+      <li class="m-3">
         <a
           href="https://www.linkedin.com/in/evan-hermier-799b48121/"
           target="_blank"
@@ -12,7 +10,7 @@
           ><img src="@/assets/images/linkedin.png" alt="logo linkedin"
         /></a>
       </li>
-      <li>
+      <li class="m-3">
         <a
           href="https://github.com/RoXxIV"
           target="_blank"
@@ -23,17 +21,3 @@
     </ul>
   </footer>
 </template>
-
-<style lang="scss" scoped>
-footer {
-  background: var(--white);
-  padding: 20px 0;
-  ul {
-    display: flex;
-    justify-content: center;
-    li {
-      margin: 0 15px;
-    }
-  }
-}
-</style>

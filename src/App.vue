@@ -12,9 +12,4 @@ import MyFooter from "./components/MyFooter.vue";
   <!--<MyFooter></MyFooter>-->
 </template>
 
-<style lang="scss" scoped>
-section {
-  width: 75%;
-  margin: auto;
-}
-</style>
+<style lang="scss" scoped></style>

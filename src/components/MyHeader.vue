@@ -1,42 +1,17 @@
-<script setup lang="ts"></script>
-
 <template>
-  <header>
-    <div id="logo">
-      <router-link to="/"><span>We</span>Care</router-link>
+  <header class="flex justify-between justify-items-center p-8 bg-white mb-20">
+    <div class="text-2xl font-bold rotate-12">
+      <router-link to="/"
+        ><span class="text-violet-700">We</span>Care</router-link
+      >
     </div>
     <nav>
-      <button @click="$router.push('/devis-en-ligne')">Obtenir un devis</button>
+      <button
+        @click="$router.push('/devis-en-ligne')"
+        class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Obtenir un devis
+      </button>
     </nav>
   </header>
 </template>
-
-<style lang="scss" scoped>
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 30px;
-  background: var(--white);
-  #logo {
-    font-size: 1.4em;
-    font-weight: bold;
-    span:first-child {
-      color: var(--purple);
-    }
-  }
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 2.2rem;
-    background: var(--purple);
-    color: var(--white);
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    &:hover {
-      background: #4a2c8f;
-    }
-  }
-}
-</style>
