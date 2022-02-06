@@ -6,12 +6,12 @@
       >
     </div>
     <nav>
-      <button
-        @click="$router.push('/devis-en-ligne')"
+      <router-link
+        to="/devis-en-ligne/1"
         class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-full"
       >
         Obtenir un devis
-      </button>
+      </router-link>
     </nav>
   </header>
 </template>

@@ -4,13 +4,13 @@ import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const store = useSimulatorStore();
-const isOwnerSelected = ref(false);
-const isTenantSelected = ref(false);
+const isPrimarySelected = ref(false);
+const isSecondarySelected = ref(false);
 /**
  * Active ou desactive le <button> si un choix est actif
  */
 const isDisabled = computed(() => {
-  if (isOwnerSelected.value || isTenantSelected.value) {
+  if (isPrimarySelected.value || isSecondarySelected.value) {
     return true;
   }
   return false;
@@ -20,13 +20,13 @@ const isDisabled = computed(() => {
  * puis redirige vers la suite du simulateur
  */
 function handleChoice(): void {
-  if (isOwnerSelected.value) {
-    store.addPersonalStatus("propriétaire");
-  } else if (isTenantSelected.value) {
-    store.addPersonalStatus("locataire");
+  if (isPrimarySelected.value) {
+    store.addHomeType("résidence principale");
+  } else if (isSecondarySelected.value) {
+    store.addHomeType("résidence secondaire");
   }
   console.log(store.$state);
-  router.push("/devis-en-ligne/3/utilisation");
+  router.push("/");
 }
 
 console.log(isDisabled.value);
@@ -37,34 +37,35 @@ console.log(isDisabled.value);
     class="text-center bg-white py-12 md:w-3/4 md:mx-auto md:rounded-lg lg:w-1/2 lg:p-12"
   >
     <h1 class="text-2xl md:text-4xl font-bold">
-      Ma situation <span class="text-violet-700">personnelle</span>
+      Mon utilisation du
+      <span class="text-violet-700">logement</span>
     </h1>
     <ul class="pt-6 flex flex-col text-2xl md:flex-row md:my-12 md:mx-auto">
       <li
         @click="
-          isOwnerSelected = !isOwnerSelected;
-          if (isTenantSelected) isTenantSelected = false;
+          isPrimarySelected = !isPrimarySelected;
+          if (isSecondarySelected) isSecondarySelected = false;
         "
-        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold hover:border-violet-700 md:w-1/3"
-        :class="{ 'border-violet-700': isOwnerSelected }"
+        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold md:w-1/3"
+        :class="{ 'border-violet-700': isPrimarySelected }"
       >
         <font-awesome-icon
           class="block mx-auto text-violet-700 text-4xl"
-          :icon="['fas', 'key']"
-        />Propriétaire
+          :icon="['fas', 'home']"
+        />Résidence principale
       </li>
       <li
         @click="
-          isTenantSelected = !isTenantSelected;
-          if (isOwnerSelected) isOwnerSelected = false;
+          isSecondarySelected = !isSecondarySelected;
+          if (isPrimarySelected) isPrimarySelected = false;
         "
-        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold hover:border-violet-700 md:w-1/3"
-        :class="{ 'border-violet-700': isTenantSelected }"
+        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold md:w-1/3"
+        :class="{ 'border-violet-700': isSecondarySelected }"
       >
         <font-awesome-icon
           class="block mx-auto text-violet-700 text-4xl"
-          :icon="['fas', 'stopwatch']"
-        />Locataire
+          :icon="['fas', 'igloo']"
+        />Résidence secondaire
       </li>
     </ul>
     <button

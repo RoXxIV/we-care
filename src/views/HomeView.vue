@@ -32,12 +32,12 @@
           au juste prix ?
         </li>
       </ul>
-      <button
-        @click="$router.push('/devis-en-ligne/1')"
-        class="bg-teal-300 hover:bg-teal-400 text-neutral-800 font-bold py-2 px-4 rounded-full"
+      <router-link
+        to="/devis-en-ligne/1"
+        class="bg-teal-300 hover:bg-teal-400 text-neutral-800 font-bold py-3 px-4 rounded-full"
       >
         Obtenir un devis gratuitement
-      </button>
+      </router-link>
     </div>
     <div>
       <img

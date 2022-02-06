@@ -1,33 +1,77 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useSimulatorStore } from "@/stores/simulatoreStore";
+import { computed, ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const store = useSimulatorStore();
+const isHouseSelected = ref(false);
+const isIglooSelected = ref(false);
+/**
+ * Active ou desactive le <button> si un choix est actif
+ */
+const isDisabled = computed(() => {
+  if (isHouseSelected.value || isIglooSelected.value) {
+    return true;
+  }
+  return false;
+});
+/**
+ * Update le store en fonction du choix utilisateur
+ * puis redirige vers la suite du simulateur
+ */
+function handleChoice(): void {
+  if (isHouseSelected.value) {
+    store.addHabitationType("maison");
+  } else if (isIglooSelected.value) {
+    store.addHabitationType("igloo");
+  }
+  console.log(store.$state);
+  router.push("/devis-en-ligne/2/situation-personnelle");
+}
+
+console.log(isDisabled.value);
+</script>
 
 <template>
-  <section class="w-1/2 mx-auto text-center bg-white px-32 py-24 rounded-lg">
-    <h1 class="text-4xl font-bold">
-      Mon type de <span class="text-violet-700">logement</span>
+  <section
+    class="text-center bg-white py-12 md:w-3/4 md:mx-auto md:rounded-lg lg:w-1/2 lg:p-12"
+  >
+    <h1 class="text-2xl md:text-4xl font-bold">
+      Mon type de
+      <span class="text-violet-700">logement</span>
     </h1>
-    <ul class="flex justify-around py-14">
+    <ul class="pt-6 flex flex-col text-2xl md:flex-row md:my-12 md:mx-auto">
       <li
-        class="w-1/3 p-10 border-2 border-neutral-500 rounded-lg cursor-pointer text-lg font-bold hover:border-violet-700"
+        @click="
+          isHouseSelected = !isHouseSelected;
+          if (isIglooSelected) isIglooSelected = false;
+        "
+        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold md:w-1/3"
+        :class="{ 'border-violet-700': isHouseSelected }"
       >
         <font-awesome-icon
-          class="block mx-auto text-7xl mb-3"
+          class="block mx-auto text-violet-700 text-4xl"
           :icon="['fas', 'home']"
-        />
-        Maison
+        />Maison
       </li>
       <li
-        class="w-1/3 p-10 border-2 border-neutral-500 rounded-lg cursor-pointer text-lg font-bold hover:border-violet-700"
+        @click="
+          isIglooSelected = !isIglooSelected;
+          if (isHouseSelected) isHouseSelected = false;
+        "
+        class="w-3/4 mx-auto p-16 my-2 border-2 border-neutral-500 rounded-lg cursor-pointer font-bold md:w-1/3"
+        :class="{ 'border-violet-700': isIglooSelected }"
       >
         <font-awesome-icon
-          class="block mx-auto text-7xl mb-3"
+          class="block mx-auto text-violet-700 text-4xl"
           :icon="['fas', 'igloo']"
-        />
-        Igloo
+        />Igloo
       </li>
     </ul>
     <button
-      @click="$router.push('/devis-en-ligne/2/situation-personnelle')"
+      @click="handleChoice()"
       class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-full"
+      :disabled="!isDisabled"
     >
       Continuer
     </button>
