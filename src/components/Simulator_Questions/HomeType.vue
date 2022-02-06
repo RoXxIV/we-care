@@ -51,7 +51,7 @@ console.log(isDisabled.value);
       >
         <font-awesome-icon
           class="block mx-auto text-violet-700 text-4xl"
-          :icon="['fas', 'home']"
+          :icon="['fas', 'house-user']"
         />Résidence principale
       </li>
       <li
@@ -64,7 +64,7 @@ console.log(isDisabled.value);
       >
         <font-awesome-icon
           class="block mx-auto text-violet-700 text-4xl"
-          :icon="['fas', 'igloo']"
+          :icon="['fas', 'hot-tub']"
         />Résidence secondaire
       </li>
     </ul>
