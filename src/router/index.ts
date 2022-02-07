@@ -6,6 +6,7 @@ import ResultView from '../views/ResultView.vue'
 import HabitationType from '../components/Simulator_Questions/HabitationType.vue'
 import PersonalStatus from "../components/Simulator_Questions/PersonalStatus.vue"
 import HomeType from "../components/Simulator_Questions/HomeType.vue"
+import HomeLocation from "../components/Simulator_Questions/HomeLocation.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +23,8 @@ const router = createRouter({
       children: [
         {path: '', component: HabitationType},
         {path: 'situation-personnelle', component: PersonalStatus},
-        {path: 'utilisation', component: HomeType}
+        {path: 'utilisation', component: HomeType},
+        {path: 'ville', component: HomeLocation}
       ]
     },
     {

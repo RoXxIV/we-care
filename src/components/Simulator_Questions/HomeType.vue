@@ -26,7 +26,7 @@ function handleChoice(): void {
     store.addHomeType("résidence secondaire");
   }
   console.log(store.$state);
-  router.push("/");
+  router.push("/devis-en-ligne/4/ville");
 }
 
 console.log(isDisabled.value);
